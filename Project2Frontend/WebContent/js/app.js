@@ -19,23 +19,8 @@ app.config(function($routeProvider) {
 	}).when('/listofjobs', {
 		controller : 'JobCtrl',
 		templateUrl : 'views/listofjobs.html'
-	}).when('/addblog', {
-		controller : 'BlogCtrl',
-		templateUrl : 'views/blogform.html'
-	}).when('/blogsWaitingForApproval/:id', {
-		controller : 'BlogCtrl',
-		template : 'views/blogsWaitingForApproval.html'
-	}).when('/blogsApproved/:id', {
-		controller : 'BlogCtrl',
-		template : 'views/blogsApproved.html'
-	}).when('/getBlogApprovalForm/:id', {
-		controller : 'BlogInDetailCtrl',
-		templateUrl : 'views/blogApprovalForm.html'
-	}).when('/getBlogApproved/:id', {
-		controller : 'BlogInDetailCtrl',
-		templateUrl : 'views/blogdetails.html'
 	}).otherwise({
-		templateUrl : 'views/home.html'
+		templateUrl : 'views/index.html'
 	})
 })
 

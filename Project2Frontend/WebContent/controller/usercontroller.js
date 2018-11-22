@@ -1,6 +1,4 @@
-/**
- * UserCtrl
- */
+
 app.controller('UserCtrl', function($scope, UserService, $location , $rootScope , $cookieStore) {
 
 	$scope.registration = function(user) {// user object from view
@@ -17,7 +15,7 @@ app.controller('UserCtrl', function($scope, UserService, $location , $rootScope 
 		console.log("inside login of usercontroller")
 		UserService.login(user).then(function(response) {
 			$rootScope.user=response.data
-			$cookieStore.put('loggedInUser',response.data)
+			//$cookieStore.put('loggedInUser',response.data)
 			$location.path('/home')
 		}, function(response) {
 			$scope.error = response.data

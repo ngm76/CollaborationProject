@@ -33,7 +33,7 @@ public class DBConfiguration {
 		hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
 		lsf.addProperties(hibernateProperties);
 
-		Class[] classes = new Class[] { User.class };// class objects of all the entities
+		Class[] classes = new Class[] { User.class , Job.class };// class objects of all the entities
 
 		return lsf.addAnnotatedClasses(classes).buildSessionFactory();
 	}
