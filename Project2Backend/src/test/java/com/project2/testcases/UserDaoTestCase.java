@@ -39,7 +39,7 @@ public class UserDaoTestCase extends TestCase {
 		assertTrue(user != null);
 	}
 	
-	public void textUpdateUser() {
+	public void testUpdateUser() {
 		User user = userDao.getUser("manoli.neha07@gmail.com");
 		user.setOnline(false);
 		System.out.println(user.isOnline());
