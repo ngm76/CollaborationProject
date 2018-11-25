@@ -43,6 +43,38 @@ app.factory('BlogService',function($http){
 	return $http.get("http://localhost:8097/Project2Middleware/getblogcomments/"+blogPostId)	
 	}
 	
+	
+	
+	/*
+	blogService.getAllNotifications=function(){
+		alert("notificationService.getAllNotifications")
+		return $http.get("http://localhost:8097/Project2Middleware/getallnotifications")
+	}
+	
+	
+	blogService.getNotification=function(notificationId){
+		alert("notificationService.getNotification")
+		return $http.get("http://localhost:8097/Project2Middleware/getnotification/"+notificationId)
+	}
+	
+	blogService.updateNotification=function(notificationId){
+		alert("notificationService.updateNotification")
+		return $http.put("http://localhost:8097/Project2Middleware/updatenotification/"+notificationId);
+	}
+	
+	
+	
+	
+	*/
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	return blogService;
 })
 

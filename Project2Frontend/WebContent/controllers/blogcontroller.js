@@ -45,4 +45,55 @@ app.controller('BlogCtrl',function($scope,BlogService,$location,$rootScope,$rout
 		$location.path('/login')
 	}
 	
+	
+	
+/*	var notificationId = $routeParams.id
+	function getAllNotifications() {
+		BlogService.getAllNotifications().then(function(response) {
+			// response.data ? Array of notifications not yet viewed
+			
+			$rootScope.notifications = response.data
+			console.log($rootScope.notifications)
+			$rootScope.notificationCount = $rootScope.notifications.length
+		}, function(response) {
+			if (response.status == 401)
+				$location.path('/login')
+		})
+	}
+	if (notificationId != undefined) {
+		BlogService.getNotification(notificationId).then(
+				function(response) {
+					// response.data ? select * from notification where id=?
+					// single notification object
+					$scope.notification = response.data // notificationDetails.html
+				}, function(response) {
+					if (response.status == 401)
+						$location.path('/login')
+				})
+
+		BlogService.updateNotification(notificationId).then(
+				function(response) {
+					getAllNotifications()
+					// call the function to execute the statement
+					// NotificationService.getAllNotifications()
+				}, function(response) {
+					if (response.status == 401)
+						$location.path('/login')
+				})
+
+	}
+
+	getAllNotifications()// call the function to execute the statement
+							// NotificationService.getAllNotifications()
+	
+	
+	
+	*/
+	
+	
+	
+	
+	
+	
+	
 })

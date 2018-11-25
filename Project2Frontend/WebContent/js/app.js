@@ -5,7 +5,9 @@
 var app = angular.module("app", [ 'ngRoute', 'ngCookies' ])
 
 app.config(function($routeProvider) {
-	$routeProvider.when('/registration', {
+	$routeProvider.when('/home', {
+		templateUrl : 'views/home.html'
+	}).when('/registration', {
 		controller : 'UserCtrl',
 		templateUrl : 'views/registrationform.html'
 	}).when('/login', {
@@ -37,8 +39,17 @@ app.config(function($routeProvider) {
 	}).when('/getnotification/:id', {
 		controller : 'NotificationCtrl',
 		templateUrl : 'views/notificationdetails.html'
-	}).when('/getallnotifications',{
-		controller:'NotificationCtrl'
+	}).when('/getallnotifications', {
+		controller : 'NotificationCtrl'
+	}).when('/suggestedusers', {
+		controller : 'FriendCtrl',
+		templateUrl : 'views/suggestedusers.html'
+	}).when('/pendingrequests', {
+		controller : 'FriendCtrl',
+		templateUrl : 'views/pendingrequests.html'
+	}).when('/listoffriends', {
+		controller : 'FriendCtrl',
+		templateUrl : 'views/friendslist.html'
 	}).otherwise({
 		templateUrl : 'views/home.html'
 	})
