@@ -4,6 +4,8 @@
 app.factory('NotificationService',function($http){
 	var notificationService={}
 	
+	console.log("NotificationService");
+	
 	notificationService.getAllNotifications=function(){
 		alert("notificationService.getAllNotifications")
 		return $http.get("http://localhost:8097/Project2Middleware/getallnotifications")

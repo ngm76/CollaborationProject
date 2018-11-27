@@ -22,35 +22,37 @@ import com.project2.models.ErrorClass;
 @Controller
 public class BlogCommentController {
 	@Autowired
-private BlogCommentDao blogCommentDao;
-@Autowired
-private UserDao userDao;
-    @RequestMapping(value="/addblogcomment",method=RequestMethod.POST)
-	public ResponseEntity<?> addBlogComment(@RequestBody BlogComment blogComment,HttpSession session){
-		String email=(String)session.getAttribute("email");
-		if(email==null){
-			ErrorClass errorClass=new ErrorClass(5,"Unauthorized access.. please login");
-			return new ResponseEntity<ErrorClass>(errorClass,HttpStatus.UNAUTHORIZED);
+	private BlogCommentDao blogCommentDao;
+	@Autowired
+	private UserDao userDao;
+
+	public BlogCommentController() {
+		System.out.println("BlogCommentController instantiated");
+	}
+
+	@RequestMapping(value = "/addblogcomment", method = RequestMethod.POST)
+	public ResponseEntity<?> addBlogComment(@RequestBody BlogComment blogComment, HttpSession session) {
+		String email = (String) session.getAttribute("email");
+		if (email == null) {
+			ErrorClass errorClass = new ErrorClass(5, "Unauthorized access.. please login");
+			return new ResponseEntity<ErrorClass>(errorClass, HttpStatus.UNAUTHORIZED);
 		}
-		
+
 		blogComment.setCommentedBy(userDao.getUser(email));
 		blogComment.setCommentedOn(new Date());
 		blogCommentDao.addBlogComment(blogComment);
-		return new ResponseEntity<BlogComment>(blogComment,HttpStatus.OK);
+		return new ResponseEntity<BlogComment>(blogComment, HttpStatus.OK);
 	}
-    @RequestMapping(value="/getblogcomments/{blogPostId}",method=RequestMethod.GET)
-    public ResponseEntity<?> getBlogComments(@PathVariable int blogPostId,HttpSession session){
-    	String email=(String)session.getAttribute("email");
-		if(email==null){
-			ErrorClass errorClass=new ErrorClass(5,"Unauthorized access.. please login");
-			return new ResponseEntity<ErrorClass>(errorClass,HttpStatus.UNAUTHORIZED);
+
+	@RequestMapping(value = "/getblogcomments/{blogPostId}", method = RequestMethod.GET)
+	public ResponseEntity<?> getBlogComments(@PathVariable int blogPostId, HttpSession session) {
+		String email = (String) session.getAttribute("email");
+		if (email == null) {
+			ErrorClass errorClass = new ErrorClass(5, "Unauthorized access.. please login");
+			return new ResponseEntity<ErrorClass>(errorClass, HttpStatus.UNAUTHORIZED);
 		}
-		List<BlogComment> blogComments=blogCommentDao.getAllBlogComments(blogPostId);
-		return new ResponseEntity<List<BlogComment>>(blogComments,HttpStatus.OK);
-    }
-    
+		List<BlogComment> blogComments = blogCommentDao.getAllBlogComments(blogPostId);
+		return new ResponseEntity<List<BlogComment>>(blogComments, HttpStatus.OK);
+	}
+
 }
-
-
-
-

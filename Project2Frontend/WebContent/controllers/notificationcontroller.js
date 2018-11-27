@@ -1,20 +1,16 @@
 /**
- * 
- */
-/**
  * NotificationCtrl /home /getnotification/:id
  */
 app.controller('NotificationCtrl', function($rootScope, NotificationService,
 		$location, $scope, $routeParams) {
-alert("NotificationCtrl")
+
 	var notificationId = $routeParams.id
 	function getAllNotifications() {
 		NotificationService.getAllNotifications().then(function(response) {
 			// response.data ? Array of notifications not yet viewed
-			
 			$rootScope.notifications = response.data
-			console.log($rootScope.notifications)
 			$rootScope.notificationCount = $rootScope.notifications.length
+			console.log($rootScope.notificationCount)
 		}, function(response) {
 			if (response.status == 401)
 				$location.path('/login')

@@ -5,6 +5,8 @@
 app.factory('FriendService',function($http){
 	var friendService={}
 
+	console.log("FriendService");
+	
 	friendService.getAllSuggestedUsers=function(){
 		return $http.get("http://localhost:8097/Project2Middleware/suggestedusers")
 	}

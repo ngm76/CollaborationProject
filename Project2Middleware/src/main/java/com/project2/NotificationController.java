@@ -34,7 +34,7 @@ public class NotificationController {
 			ErrorClass errorClass = new ErrorClass(5, "Unauthorized access.. please login");
 			return new ResponseEntity<ErrorClass>(errorClass, HttpStatus.UNAUTHORIZED);
 		}
-		// String email="neha@neha.com";
+		//String email="neha@neha.com";
 		List<Notification> notifications = notificationDao.getAllNotifications(email);
 		return new ResponseEntity<List<Notification>>(notifications, HttpStatus.OK);
 	}

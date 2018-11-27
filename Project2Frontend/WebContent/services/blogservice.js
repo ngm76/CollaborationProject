@@ -1,6 +1,8 @@
 app.factory('BlogService',function($http){
 	var blogService={}
 	
+	console.log("BlogService");
+	
 	blogService.addBlog=function(blog){
 		return $http.post("http://localhost:8097/Project2Middleware/addblogpost",blog)
 	}

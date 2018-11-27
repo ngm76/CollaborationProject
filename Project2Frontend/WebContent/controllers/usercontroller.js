@@ -1,6 +1,8 @@
 
-app.controller('UserCtrl', function($scope, UserService, $location , $rootScope , $cookieStore) {
+app.controller('UserCtrl', function($scope, UserService , $location , $rootScope , $cookieStore) {
 
+	
+	
 	$scope.registration = function(user) {// user object from view
 		alert("inside registration of usercontroller")
 		UserService.registration(user)// to service
