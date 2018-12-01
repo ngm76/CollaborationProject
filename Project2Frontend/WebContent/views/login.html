@@ -1,23 +1,21 @@
-<div class="wrapper" style="font-family: Helvetica">
-	<div id="content">
-		<div class="box">
-			
-				<span style="color: red">{{error.errorMessage}}</span> <br> <b>Login
-					page</b>
-				<form>
-					
-					
-						Enter Email:<input type="email" ng-model="user.email">
-					
-					<br>
-					
-						Enter password:<input type="password" ng-model="user.password">
-					
-					<br>
-					<button ng-click="login(user)" class="btn btn-info">Login</button>
+<span style="color:red">{{error.errorMessage}}</span>
+<br>
 
-				</form>
-			
-		</div>
-	</div>
+<div class="box">
+<div class="form_login">
+<b>Login page</b>
+<br/><br>
+
+<form>
+
+<div class="form-option">
+<label><input type="email" class="form-control" placeholder="Email" ng-model="user.email"></label>
+</div><br>
+<div class="form-option">
+<label><input type="password"  class="form-control" placeholder="Password" ng-model="user.password"></label>
+</div><br>
+<button ng-click="login(user)" class="btn btn-info">Login</button>
+
+</form>
+</div>
 </div>

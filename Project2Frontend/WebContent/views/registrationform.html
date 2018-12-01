@@ -1,14 +1,43 @@
+<div class="box">
+<div class="form_login">
+
 <span style="color: red">{{error.errorMessage}}</span>
 <form>
-	Enter email:<input type="email" ng-model="user.email"><br>
-	Enter password:<input type="password" ng-model="user.password"><br>
-	Enter Firstname:<input type="text" ng-model="user.firstname"><br>
-	Enter Lastname:<input type="text" ng-model="user.lastname"><br>
-	Enter Phonenumber:<input type="text" ng-model="user.phonenumber"><br>
-	Select Role:<select ng-model="user.role">
-		<option value="STUDENT">Student
-		<option value="EMPLOYEE">Employee
-		<option value="ALUMNI">Alumni
+
+<div class="form-option">
+<label>
+	<input type="email" ng-model="user.email" placeholder="Email"></label></div><br>
+	
+<div class="form-option">
+<label>
+	<input type="password" ng-model="user.password" placeholder="Password"></label></div><br>
+	
+<div class="form-option">
+<label>
+	<input type="text" ng-model="user.firstname" placeholder="Firstname"></label></div><br>
+	
+<div class="form-option">
+<label>
+	<input type="text" ng-model="user.lastname"placeholder="Lastname"></label></div><br>
+	
+<div class="form-option">
+<label>
+	<input type="text" ng-model="user.phonenumber" placeholder="Phonenumber"></label></div><br>
+	
+<div class="form-option">
+<label>
+	Select Role:<select ng-model="user.role" style="color:black" >
+		<label><option value="STUDENT">Student</option></label>
+		<label><option value="EMPLOYEE">Employee</option></label>
+		<label><option value="ALUMNI">Alumni</option></label>
 	</select>
+	</label>
+	</div>
+	<br>
 	<button ng-click="registration(user)" class="btn btn-info">Register</button>
+	<br>
+	<br>
+<label>	Already a User?<a style="color: white" href="#/login">  Login Here</a></label>
 </form>
+</div>
+</div>

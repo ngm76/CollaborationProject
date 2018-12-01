@@ -39,7 +39,7 @@ public class BlogPostLikesDaoImpl implements BlogPostLikesDao {
 				blogPostLikes=new BlogPostLikes();
 				blogPostLikes.setBlogPost(blogPost);
 				blogPostLikes.setUser(user);
-				session.save(blogPostLikes);//insert into blogpostlikes 
+				session.save(blogPostLikes);//insert into blogpostlikes  
 				blogPost.setLikes(blogPost.getLikes() + 1);// similar to blogpost.likes = blogpost.likes + 1
 				//update blogpost set likes=? where id=?
 				session.update(blogPost);
