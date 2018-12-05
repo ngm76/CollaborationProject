@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.project2.models.Job;
 
-@Repository
+@Repository("jobDaoImpl")
 @Transactional
 public class JobDaoImpl implements JobDao {
 

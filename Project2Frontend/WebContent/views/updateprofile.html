@@ -1,0 +1,38 @@
+<div class="box">
+<div class="form_login">
+<form>
+
+	<div class="form-option">
+		<input type="email" class="form-control" placeholder="Email"ng-model="user.email" class="form-control" disabled>
+	</div>
+
+	<div class="form-option">
+		<input type="password"class="form-control"  placeholder="Password" ng-model="user.password" class="form-control">
+	</div>
+<br>
+	<div class="form-option">
+		<input type="text" class="form-control" placeholder="Firstname" ng-model="user.firstname" class="form-control">
+	</div>
+<br>
+	<div class="form-option">
+		<input type="text"class="form-control"  placeholder="Lastname"ng-model="user.lastname" class="form-control">
+	</div>
+<br>
+	<div class="form-option">
+		<input type="text" class="form-control" placeholder="Phonenumber"ng-model="user.phonenumber" class="form-control">
+	</div>
+<br>
+	<div class="form-option">
+		<label for="email" style="color:white">&nbsp;Select Role:</label>
+		<input type="radio" style="color:white" ng-model="user.role" value="STUDENT"> Student
+		<input type="radio" style="color:white" ng-model="user.role" value="ALUMNI"> Alumni
+		<input type="radio" style="color:white" ng-model="user.role" value="EMPLOYEE"> Employee
+	</div>
+<br>
+	<div class="form-option">
+		<input type="submit" ng-click="update()" value="Update">
+	</div>
+
+</form>
+</div>
+</div>

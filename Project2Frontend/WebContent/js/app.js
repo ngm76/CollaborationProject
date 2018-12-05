@@ -5,9 +5,14 @@
 var app = angular.module("app", [ 'ngRoute', 'ngCookies' ])
 
 app.config(function($routeProvider) {
-	$routeProvider.when('/home', {
+	$routeProvider.when('/home1', {
+		templateUrl : 'views/home1.html'
+	}).when('/home', {
 		templateUrl : 'views/home.html',
-		controller : 'NotificationCtrl'
+		controller : 'NotificationCtrl',
+	}).when('/editprofile', {
+		controller : 'UserCtrl',
+		templateUrl : 'views/updateprofile.html'
 	}).when('/registration', {
 		controller : 'UserCtrl',
 		templateUrl : 'views/registrationform.html'
@@ -47,10 +52,16 @@ app.config(function($routeProvider) {
 	}).when('/listoffriends', {
 		controller : 'FriendCtrl',
 		templateUrl : 'views/friendslist.html'
-	}).when('/chat',{
-		controller:'ChatCtrl',
-		templateUrl:'views/chat.html'
-		}).otherwise({
+	}).when('/chat', {
+		controller : 'ChatCtrl',
+		templateUrl : 'views/chat.html'
+	}).when('/uploadprofilepic', {
+		templateUrl : 'views/uploadprofilepic.html'
+	}).when('/aboutus',{
+		templateUrl:'views/aboutus.html'
+	}).when('/contactus',{
+		templateUrl:'views/contactus.html'
+	}).otherwise({
 		templateUrl : 'views/home.html'
 	})
 })

@@ -3,19 +3,20 @@
 
 <div class="box">
 <div class="form_login">
-<b>Login page</b>
+<b style="color:white">Login page</b>
 <br/><br>
 
 <form>
 
 <div class="form-option">
-<label><input type="email" class="form-control" placeholder="Email" ng-model="user.email"></label>
+<input type="email" class="form-control" placeholder="Email" ng-model="user.email">
 </div><br>
 <div class="form-option">
-<label><input type="password"  class="form-control" placeholder="Password" ng-model="user.password"></label>
+<input type="password"  class="form-control" placeholder="Password" ng-model="user.password">
 </div><br>
-<button ng-click="login(user)" class="btn btn-info">Login</button>
-
+<div class="form-option">
+<button ng-click="login(user)"style="background-color:black" >Login</button>
+</div>
 </form>
 </div>
 </div>

@@ -226,7 +226,12 @@
 			<artifactId>spring-messaging</artifactId>
 			<version>4.0.0.RELEASE</version>
 		</dependency>
-
+		<!-- For image / multipart -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.1</version>
+		</dependency>
 
 	</dependencies>
 </project>

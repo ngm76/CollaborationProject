@@ -17,65 +17,36 @@ import com.project2.models.Chat;
 @Controller
 public class SockController {
 	private static final Log logger = LogFactory.getLog(SockController.class);
-
 	private final SimpMessagingTemplate messagingTemplate;
-
 	private List<String> users = new ArrayList<String>();
 
-
 	@Autowired
-
 	public SockController(SimpMessagingTemplate messagingTemplate) {
-
 		this.messagingTemplate = messagingTemplate;
-
 	}
 
 	@SubscribeMapping("/join/{username}")
-
 	public List<String> join(@DestinationVariable("username") String username) {
-        
-
-		 System.out.println("username in sockcontroller" + username);
-		 
-		 if(!users.contains(username)) {
-				users.add(username);
-			}
-
-
-		System.out.println("====JOIN==== " + username);
-
+		System.out.println("username in sockcontroller" + username);
+		if (!users.contains(username)) {
+			users.add(username);
+		}
+		System.out.println("JOIN " + username);
 		// notify all subscribers of new user
-
 		messagingTemplate.convertAndSend("/topic/join", username);
-
 		return users;
 
 	}
 
 	@MessageMapping(value = "/chat")
-
 	public void chatReveived(Chat chat) {
-
-
 		if ("all".equals(chat.getTo())) {
-
 			System.out.println("IN CHAT REVEIVED " + chat.getMessage() + " " + chat.getFrom() + " to " + chat.getTo());
-
 			messagingTemplate.convertAndSend("/queue/chats", chat);
-
-		}
-
-		else {
-
+		} else {
 			System.out.println("CHAT TO " + chat.getTo() + " From " + chat.getFrom() + " Message " + chat.getMessage());
-
 			messagingTemplate.convertAndSend("/queue/chats/" + chat.getTo(), chat);
-
 			messagingTemplate.convertAndSend("/queue/chats/" + chat.getFrom(), chat);
-
 		}
-
 	}
-
 }

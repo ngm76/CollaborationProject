@@ -1,43 +1,52 @@
 <div class="box">
-<div class="form_login">
+	<div class="form_login">
 
-<span style="color: red">{{error.errorMessage}}</span>
-<form>
+		<span style="color: red">{{error.errorMessage}}</span>
+		<form>
 
-<div class="form-option">
-<label>
-	<input type="email" ng-model="user.email" placeholder="Email"></label></div><br>
-	
-<div class="form-option">
-<label>
-	<input type="password" ng-model="user.password" placeholder="Password"></label></div><br>
-	
-<div class="form-option">
-<label>
-	<input type="text" ng-model="user.firstname" placeholder="Firstname"></label></div><br>
-	
-<div class="form-option">
-<label>
-	<input type="text" ng-model="user.lastname"placeholder="Lastname"></label></div><br>
-	
-<div class="form-option">
-<label>
-	<input type="text" ng-model="user.phonenumber" placeholder="Phonenumber"></label></div><br>
-	
-<div class="form-option">
-<label>
-	Select Role:<select ng-model="user.role" style="color:black" >
-		<label><option value="STUDENT">Student</option></label>
-		<label><option value="EMPLOYEE">Employee</option></label>
-		<label><option value="ALUMNI">Alumni</option></label>
-	</select>
-	</label>
+			<div class="form-option">
+
+				<input type="email" class="form-control" ng-model="user.email" placeholder="Email">
+			</div>
+			<br>
+
+			<div class="form-option">
+
+				<input type="password" class="form-control" ng-model="user.password"
+					placeholder="Password">
+			</div>
+			<br>
+
+			<div class="form-option">
+
+				<input type="text" class="form-control" ng-model="user.firstname" placeholder="Firstname">
+			</div>
+			<br>
+
+			<div class="form-option">
+
+				<input type="text" class="form-control"ng-model="user.lastname" placeholder="Lastname">
+			</div>
+			<br>
+
+			<div class="form-option">
+
+				<input type="text" class="form-control"ng-model="user.phonenumber"
+					placeholder="Phonenumber">
+			</div>
+			<br>
+			<div class="form-option">
+				<label style="color: white">Select Role:</label> <select
+					ng-model="user.role" style="color: black">
+					<label><option value="STUDENT">Student</option></label>
+					<label><option value="EMPLOYEE">Employee</option></label>
+					<label><option value="ALUMNI">Alumni</option></label>
+				</select>
+			</div>
+			<br>
+			<button ng-click="registration(user)"style="background-color:black" >Register</button>
+			<br> <br> <label style="color: white"> Already a
+				User?</label><a style="color: white" href="#/login"> Login Here</a>
+		</form>
 	</div>
-	<br>
-	<button ng-click="registration(user)" class="btn btn-info">Register</button>
-	<br>
-	<br>
-<label>	Already a User?<a style="color: white" href="#/login">  Login Here</a></label>
-</form>
-</div>
 </div>

@@ -32,14 +32,14 @@ public class FriendController {
 
 	@RequestMapping(value = "/suggestedusers", method = RequestMethod.GET)
 	public ResponseEntity<?> getAllSuggestedUsers(HttpSession session) {
-		/*
-		 * String email = (String)session.getAttribute("email"); if(email == null) {
-		 * ErrorClass errorClass = new
-		 * ErrorClass(5,"Unauthorized access..please login"); return new
-		 * ResponseEntity<ErrorClass> (errorClass , HttpStatus.UNAUTHORIZED); }
-		 */
 
-		String email = "neha@neha.com";
+		String email = (String) session.getAttribute("email");
+		if (email == null) {
+			ErrorClass errorClass = new ErrorClass(5, "Unauthorized access..please login");
+			return new ResponseEntity<ErrorClass>(errorClass, HttpStatus.UNAUTHORIZED);
+		}
+
+		// String email = "neha@neha.com";
 
 		List<User> suggestedUsers = friendDao.getAllSuggestedUsers(email);
 		return new ResponseEntity<List<User>>(suggestedUsers, HttpStatus.OK);

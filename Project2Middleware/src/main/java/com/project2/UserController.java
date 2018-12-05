@@ -80,4 +80,28 @@ public class UserController {
 		session.invalidate();
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
+	
+	@RequestMapping(value="/update",method=RequestMethod.PUT)
+	public ResponseEntity<?> update(@RequestBody User user , HttpSession session){
+		String email = (String) session.getAttribute("email");
+		if(email == null) {
+			ErrorClass errorClass = new ErrorClass(5,"Please login");
+			return new ResponseEntity<ErrorClass>(errorClass,HttpStatus.UNAUTHORIZED);
+		}
+		
+		userDao.updateUser(user);
+		return new ResponseEntity<User>(user,HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/getuser",method=RequestMethod.GET)
+	public ResponseEntity<?> getUser(HttpSession session){
+		String email = (String) session.getAttribute("email");
+		if(email == null) {
+			ErrorClass errorClass = new ErrorClass(5,"Please Login");
+			return new ResponseEntity<ErrorClass>(errorClass,HttpStatus.UNAUTHORIZED);
+		}
+		
+		User user = userDao.getUser(email);
+		return new ResponseEntity<User>(user,HttpStatus.OK);
+	}
 }

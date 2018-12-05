@@ -50,9 +50,11 @@ Latest compiled JavaScript
 </style>
 
 
+
 </head>
-<body ng-app="app" style="text-align: center;">
-	<nav class="navbar-default" id="main">
+<body ng-app="app"
+	style="text-align: center; background-image: url(resources/images/Large_0338274.jpg)">
+	<nav class="navbar-default" id="main" style="color: white;background-color:#804000">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -60,30 +62,35 @@ Latest compiled JavaScript
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class=" navbar-brand active " href=""style="color: white"
+				<a class=" navbar-brand active " href="" style="color: white"
 					onclick="openNav()">Collaboration Portal</a>
 
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar"
-				style="color: white">
+				style="color: white;background-color:#804000">
 				<ul class="nav navbar-nav" style="color: white">
 
-					
+
 				</ul>
-				<ul class="nav navbar-nav navbar-right" style="color: white">
+				<ul class="nav navbar-nav navbar-right" style="color: white ;background-color:#804000">
 					<li ng-show="user.email!=undefined"><a style="color: white"
 						class="nav-link" href="">Welcome
 							{{user.firstname}}&nbsp;{{user.lastname}}</a></li>
+					<li onclick="closeNav()" ng-show="user.email!=undefined"><a
+						href="#/uploadprofilepic"><img
+							src="http://localhost:8097/Project2Middleware/getimage/{{user.email}}"
+							alt="profilepic" height="20px" width="20px"></a></li>
 					<li><a style="color: white"
-						class="glyphicon glyphicon-question-sign" href="#"></a></li>
+						class="glyphicon glyphicon-question-sign" href="#/aboutus"></a></li>
+					<li><a style="color: white" class="nav-link" href="#/home">Home</a></li>
 					<li><a style="color: white"
-						class="glyphicon glyphicon-envelope" href="#"></a></li>
+						class="glyphicon glyphicon-envelope" href="#/contactus"></a></li>
 					<li ng-show="user.email==undefined"><a style="color: white"
-						href="#/registration"><span class="glyphicon glyphicon-user"></span></a></li>
+						href="#/registration" ><span class="glyphicon glyphicon-user"></span></a></li>
 					<!-- <li ng-show="user.email==undefined"><a style="color: white"
 						href="#/login"><span class="glyphicon glyphicon-log-in"></span></a></li> -->
-<li ng-show="user.email!=undefined"><a style="color: white"
-						class="nav-link" class="nav-link " href="" ng-click="logout()">logout</a></li>
+					<li ng-show="user.email!=undefined"><a style="color: white"
+						class="nav-link" href="" ng-click="logout()">logout</a></li>
 
 				</ul>
 			</div>
@@ -95,22 +102,28 @@ Latest compiled JavaScript
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
 			style="color: white">&times;</a>
 		<ul>
-			<li class="dropdown"></li><br />
+			<li><a href="#/editprofile" ng-show="user.email!=undefined">My
+					Profile</a></li>
+
+			<li class="dropdown"></li>
+			<br>
 			<li ng-show="user.role=='ADMIN'"><a class="nav-link"
-				href="#/addjob"onclick="closeNav()">Add Job</a></li>
+				href="#/addjob" onclick="closeNav()">Add Job</a></li>
 			<li ng-show="user.email!=undefined"><a class="nav-link"
-				href="#/getalljobs"onclick="closeNav()">Get All Jobs</a></li>
+				href="#/getalljobs" onclick="closeNav()">Get All Jobs</a></li>
 
 			<li class="dropdown" ng-show="user.email!=undefined "><a
 				class="nav-link" href="#" class="dropdown-toggle"
 				data-toggle="dropdown">Blog<span class="caret"></span></a>
 
-				<ul class="dropdown-menu">
-					<li><a class="nav-link" href="#/addblog"onclick="closeNav()">Add Blog</a></li>
+				<ul class="dropdown-menu"style="text-align: center;background-color:#804000;color:white">
+					<li><a style="color:white"class="nav-link" href="#/addblog" onclick="closeNav()">Add
+							Blog</a></li>
 					<!-- if routeparams value is 1, only then it will execute the statement BlogService.getBlogsWaitingForApproval() -->
-					<li ng-show="user.role=='ADMIN'"><a class="nav-link"
-						href="#/blogsWaitingForApproval/1"onclick="closeNav()">Blogs Waiting For approval</a></li>
-					<li><a class="nav-link" href="#/blogsApproved/2">Blogs
+					<li ng-show="user.role=='ADMIN'"><a style="color:white" class="nav-link"
+						href="#/blogsWaitingForApproval/1" onclick="closeNav()">Blogs
+							Waiting For approval</a></li>
+					<li><a style="color:white" class="nav-link" href="#/blogsApproved/2">Blogs
 							Approved</a></li>
 				</ul></li>
 
@@ -123,13 +136,13 @@ Latest compiled JavaScript
 				<ul class="dropdown-menu">
 					<span class="dropdown-content">
 
-						<li ng-repeat="notification in notifications"><a
+						<li ng-repeat="notification in notifications"><a  style="color:white"
 							class="nav-link" href="#/getnotification/{{notification.id}}">The
 								Blog titled <b> {{notification.blogTitle}}</b> approval status
 								is updated.. Click here to view the status
 						</a>
 							<hr></li>
-						<li>Notifications</li>
+						
 					</span>
 				</ul></li>
 			<!-- 
@@ -139,18 +152,19 @@ Latest compiled JavaScript
 			<li class="dropdown" ng-show="user.email != undefined"><a
 				class="nav-link" href="#" class="dropdown-toggle"
 				data-toggle="dropdown">Friend<span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a class="nav-link" href="#/suggestedusers"onclick="closeNav()">Suggested
-							Users</a></li>
-					<li><a class="nav-link" href="#/pendingrequests"onclick="closeNav()">Pending
-							Requests</a></li>
-					<li><a class="nav-link" href="#/listoffriends"onclick="closeNav()">Friends</a></li>
+				<ul class="dropdown-menu"style="text-align: center;background-color:#804000;color:white">
+					<li><a  style="color:white" class="nav-link" href="#/suggestedusers"
+						onclick="closeNav()">Suggested Users</a></li>
+					<li><a  style="color:white" class="nav-link" href="#/pendingrequests"
+						onclick="closeNav()">Pending Requests</a></li>
+					<li><a   style="color:white" class="nav-link" href="#/listoffriends"
+						onclick="closeNav()">Friends</a></li>
 
 
 				</ul></li>
 
-			<li ng-show="user.firstname"><a class="nav-link" href="#/chat"onclick="closeNav()">Chat
-					Room </a></li>
+			<li ng-show="user.firstname"><a class="nav-link" href="#/chat"
+				onclick="closeNav()">Chat Room </a></li>
 		</ul>
 	</div>
 
@@ -164,8 +178,10 @@ Latest compiled JavaScript
 	</div>
 
 
-	<div class="container">
+	<div class="container-fluid">
+
 		<div ng-view></div>
+
 	</div>
 
 

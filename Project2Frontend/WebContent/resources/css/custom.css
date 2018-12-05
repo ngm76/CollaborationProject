@@ -2,6 +2,7 @@
 body{
 	
 	font:Times New Roman;
+	
 }
 box{
 	width:200px;
@@ -12,11 +13,11 @@ box{
 	text-align: center;
 	vertical-align: middle;
 	display: inline-block;
-	border: 1px solid #ccc;
+	
 	border-radius: 4px;
 	box-sizing: border-box;
 	margin: 5% auto;
-	background-color:#808000;
+	background-color:#804000;
 }
 
 .form-option{
@@ -28,8 +29,12 @@ box{
 	color:white;
 }
 
+.navbar-header{
+	background-color:#804000;
+}
+
 .navbar-default{
-	background-color:#808000;
+	background-color:#804000;
 	color:white
 }
 
@@ -49,7 +54,7 @@ ul{
     top: 0; /* Stay at the top */
     left: 0;
     color:white;
-    background-color: #808000; /* Black*/
+    background-color: #804000; /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -83,6 +88,9 @@ ul{
 #main {
     transition: margin-left .5s;
    
+}
+.panel b {
+	color: #804040;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
